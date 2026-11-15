@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- 注意：本页与其他 SEO 静态页不同，其他页是纯静态、无脚本；本页是一个计算工具，内联 <script> 就是工具本身，负责实时计算。页面不含任何追踪代码。 -->
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 订阅月度账单成本优化计算器（2026-11-15）</title>
+<meta name="description" content="输入每天 API 调用量和你自己的 API 单价，对比按量付费与 Plus / Pro 100 / 200 / 500 订阅哪个更划算。订阅价为 2026-11-15 官方价，发布前须重核。">
+<style>
+body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;max-width:720px;margin:0 auto;padding:24px 16px;line-height:1.8;color:#222}
+h1{font-size:22px}h2{font-size:18px;margin-top:28px}
+a{color:#1657c9}.note{color:#666;font-size:14px}
+label{display:block;margin-top:16px;font-weight:600}
+input{width:100%;padding:10px;font-size:16px;margin-top:6px;border:1px solid #aaa;border-radius:6px;box-sizing:border-box}
+button{margin-top:20px;padding:10px 24px;font-size:16px;cursor:pointer}
+table{border-collapse:collapse;width:100%;font-size:15px;margin-top:12px}
+th,td{border:1px solid #ccc;padding:8px 10px;text-align:left}
+th{background:#f5f5f5}
+.cheapest{background:#e8f5e9;font-weight:600}
+.warn{background:#fff7e6;border:1px solid #f0c36d;padding:12px 16px;border-radius:6px}
+</style>
+</head>
+<body>
+<h1>AI 订阅月度账单成本优化计算器</h1>
+<p class="note">订阅价：Plus 20 美元/月、Pro 100 100 美元/月、Pro 200 200 美元/月、Pro 500 500 美元/月（官方价，核实日期 2026-11-15，发布前须重核）。按月 30 天计。</p>
+<div class="warn">
+<p><strong>本页不写任何“每调用多少钱”的示例数字。</strong>API 单价各家、各模型、各时段都不同，请填你自己账单上的单价；没有单价就先去账单里查，填别人的数算出来的结果没有意义。</p>
+</div>
+
+<label for="calls">每天 API 调用量（次 / 天）</label>
+<input id="calls" type="number" min="0" step="1" placeholder="请输入你每天的调用次数">
+
+<label for="unit">你的 API 单价（美元 / 次）</label>
+<input id="unit" type="number" min="0" step="any" placeholder="请输入你自己的单价，单位美元 / 次">
+
+<button type="button" onclick="calc()">计算</button>
+
+<div id="result"></div>
+
+<h2>结果怎么看</h2>
+<ul>
+<li>按量月费 = 每天调用量 × 30 天 × 你的单价。</li>
+<li>表中“更便宜”只比较金额，不比较额度、模型、速率限制和附带功能；订阅档位高不等于一定划算，调用量低时按量付费更便宜。</li>
+<li>自 2026-10-28 起，Pro 100 / 200 / 500 每月附带与订阅价等额的 API 额度，本计算未计入该额度；实际比较以官方最新说明为准。</li>
+<li>订阅价不含税，实际扣款以账单为准；汇率、税费不在本页计算范围内。</li>
+</ul>
+
+<script>
+function calc(){
+  var calls = parseFloat(document.getElementById('calls').value);
+  var unit = parseFloat(document.getElementById('unit').value);
+  var out = document.getElementById('result');
+  if (isNaN(calls) || isNaN(unit) || calls < 0 || unit < 0) {
+    out.innerHTML = '<p>请填写两个数字（都不能小于 0）。</p>';
+    return;
+  }
+  var payg = calls * 30 * unit;
+  var plans = [
+    {name: '按量付费', price: payg, note: '每月按实际调用量计费'},
+    {name: 'Plus', price: 20, note: '官方 20 美元/月'},
+    {name: 'Pro 100', price: 100, note: '官方 100 美元/月'},
+    {name: 'Pro 200', price: 200, note: '官方 200 美元/月'},
+    {name: 'Pro 500', price: 500, note: '官方 500 美元/月'}
+  ];
+  var cheapest = plans.reduce(function(a, b){ return b.price < a.price ? b : a; });
+  var html = '<h2>计算结果</h2><table><tr><th>方案</th><th>每月费用（美元）</th><th>说明</th></tr>';
+  plans.forEach(function(p){
+    var cls = (p.name === cheapest.name) ? ' class="cheapest"' : '';
+    var tag = (p.name === cheapest.name) ? ' ← 本月最便宜' : '';
+    html += '<tr' + cls + '><td>' + p.name + '</td><td>' + p.price.toFixed(2) + '</td><td>' + p.note + tag + '</td></tr>';
+  });
+  html += '</table>';
+  html += '<h2>各订阅档位的盈亏平衡点</h2><p>按你的单价算，每天调用量达到以下次数时，该订阅才比按量付费便宜：</p><ul>';
+  [20, 100, 200, 500].forEach(function(price){
+    if (unit > 0) {
+      var be = price / (30 * unit);
+      html += '<li>' + price + ' 美元/月档位：每天约 ' + be.toFixed(1) + ' 次</li>';
+    }
+  });
+  html += '</ul>';
+  if (unit === 0) {
+    html += '<p>单价填 0 时无法算盈亏平衡点，请填你真实的单价。</p>';
+  }
+  out.innerHTML = html;
+}
+</script>
+
+<section>
+<h2>购买入口</h2>
+<ul>
+<li><a href="https://www.16688.com.cn/shop/S833876">数卡星球（16688 店）</a></li>
+<li><a href="https://wzyp.cn/shop/VJX8A2B1">数卡星球（链动小铺店）</a></li>
+</ul>
+</section>
+<p class="note">本站为价格与选购指南，不声称官方授权。价格、库存与订阅规则以店铺详情页与官方最新说明为准。</p>
+</body>
+</html>
