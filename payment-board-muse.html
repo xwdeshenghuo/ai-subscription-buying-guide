@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 订阅支付通道存活状态看板（2026-11-15）</title>
+<meta name="description" content="ChatGPT Plus / Claude Pro 等 AI 订阅的支付通道存活状态看板。状态来自公开资料核对，变化快，发布前须重核。">
+<style>
+body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;max-width:780px;margin:0 auto;padding:24px 16px;line-height:1.8;color:#222}
+h1{font-size:22px}h2{font-size:18px;margin-top:28px}
+a{color:#1657c9}.note{color:#666;font-size:14px}
+.warn{background:#fff7e6;border:1px solid #f0c36d;padding:12px 16px;border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid #ccc;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f5f5f5}
+td.bad{color:#b00020}td.warn2{color:#8a5a00}td.ok{color:#1a7f37}td.na{color:#666}
+</style>
+</head>
+<body>
+<h1>AI 订阅支付通道存活状态看板</h1>
+<p class="note">核实日期：2026-11-15。信息来源：OpenAI / Anthropic 官方帮助中心、公开求助帖与公开支付核对文章。价格与通道规则变化很快，发布前须重核。</p>
+<div class="warn">
+<p><strong>先看这段再往下读：</strong>本表只记录 2026-11-15 当天公开资料能支撑的状态，不承诺任何通道今天可用，也不承诺任何通道明天还能用。标“未核实”的，就是没查到可信公开来源，别按经验脑补。任何一张卡能不能扣款，最终以发卡行与扣款平台的实际结果为准。</p>
+</div>
+
+<h2>状态表</h2>
+<table>
+<tr><th>支付方式</th><th>状态</th><th>信息来源类型</th><th>核实日期</th><th>备注</th></tr>
+<tr>
+<td>ChatGPT 网页直接绑卡（Visa / Mastercard）</td>
+<td class="warn2">不稳定</td>
+<td>官方帮助中心 + 公开核对文章</td>
+<td>2026-11-15</td>
+<td>OpenAI 要求发卡地区在其支持名单内，中国大陆、香港、澳门不在名单内；国内银行发行的双币卡网页直付常被拒，拒付原因在银行侧，OpenAI 拿不到。</td>
+</tr>
+<tr>
+<td>ChatGPT App 内购（Google Play，Android）</td>
+<td class="warn2">不稳定</td>
+<td>公开求助帖 + 公开核对文章</td>
+<td>2026-11-15</td>
+<td>有公开案例显示网页直付失败、转 Google Pay 在 App 内成功；也有 Play 国家与居住地不一致导致“购买无法完成”的反馈。须 Play 国家、付款资料、发卡行三者一致。</td>
+</tr>
+<tr>
+<td>ChatGPT App 内购（Apple App Store，iOS）</td>
+<td class="warn2">不稳定</td>
+<td>公开求助帖（V2EX，2026-11-10）</td>
+<td>2026-11-15</td>
+<td>公开求助：美区 Apple ID 收到“付款方式出现问题，请更新付款信息”邮件，招行 Visa 无法添加，提问者称礼品卡方式也不能订阅 GPT。个别案例，未核实普遍性。</td>
+</tr>
+<tr>
+<td>PayPal（ChatGPT 网页结账）</td>
+<td class="bad">已失效（网页端）</td>
+<td>官方帮助中心</td>
+<td>2026-11-15</td>
+<td>OpenAI 官方付款方式清单里没有 PayPal，网页结账不提供 PayPal 选项。App 内购走商店账单，与网页 PayPal 无关。</td>
+</tr>
+<tr>
+<td>Claude 网页直接绑卡（信用卡 / 借记卡）</td>
+<td class="warn2">不稳定</td>
+<td>官方帮助中心 + 公开数据汇总</td>
+<td>2026-11-15</td>
+<td>Claude 官方只收信用卡 / 借记卡，不收 PayPal；付款失败会被降级回 Free。公开汇总称被拒多为余额不足与地区限制。2026 年 11 月以来 KYC 审核明显收紧。</td>
+</tr>
+<tr>
+<td>Claude App 内购（Apple App Store，iOS）</td>
+<td class="warn2">不稳定</td>
+<td>公开求助帖汇总（linux.do，2026-11-09—12）</td>
+<td>2026-11-15</td>
+<td>公开汇总称 11 月 9–12 日有多条同类反馈：Apple 扣款成功，Claude 提示“无法将购买添加到你的 Claude 账号”，需在 Apple 侧取消并申请退款。逐条帖子未全部打开核实。</td>
+</tr>
+<tr>
+<td>Apple 礼品卡余额（美区 Apple ID）</td>
+<td class="warn2">不稳定</td>
+<td>公开求助帖 + 官方条款</td>
+<td>2026-11-15</td>
+<td>礼品卡只能在购买国家或地区兑换，余额可用于订阅扣款；但有公开求助称礼品卡方式不能订阅 GPT Pro，原因未核实。礼品卡来源存疑时 Apple 可作废且不退款。</td>
+</tr>
+<tr>
+<td>各类虚拟卡 / 第三方代付卡</td>
+<td class="na">未核实</td>
+<td>无可靠公开来源</td>
+<td>2026-11-15</td>
+<td>公开讨论说法不一，部分卡段被拒的说法存在，但具体哪家可用、哪家已失效，均无可核实的公开来源。本表不写具体卡名、不写卡段。</td>
+</tr>
+<tr>
+<td>支付宝 / 微信（官方结账直付）</td>
+<td class="bad">已失效（官方不支持）</td>
+<td>官方帮助中心 + 公开核对文章</td>
+<td>2026-11-15</td>
+<td>OpenAI 官方网页订阅目前不提供支付宝或微信直接付款。声称支持支付宝 / 微信的，是第三方商家收款，不是向官方直付。</td>
+</tr>
+</table>
+
+<h2>怎么用这张表</h2>
+<ul>
+<li>先确认扣款方：网页订阅归 OpenAI / Anthropic 管，App 内购归 Apple / Google 管，找错地方白跑一趟。</li>
+<li>同一张卡在一个渠道被拒，不等于在所有渠道都被拒；换渠道之前，先确认原订阅已取消、不会重复扣费。</li>
+<li>失败后不要连续点重试，短时间内多次失败会被风控当成盗刷特征，越点越难通过。</li>
+<li>已扣款但权益没到账：保留交易时间、金额、商户名称和收据，别再付一次，先核对登录账号，再找扣款方支持。</li>
+</ul>
+
+<section>
+<h2>购买入口</h2>
+<ul>
+<li><a href="https://www.16688.com.cn/shop/S833876">数卡星球（16688 店）</a></li>
+<li><a href="https://wzyp.cn/shop/VJX8A2B1">数卡星球（链动小铺店）</a></li>
+</ul>
+</section>
+<p class="note">本站为价格与选购指南，不声称官方授权。价格、库存与通道状态以店铺详情页与官方最新说明为准。</p>
+</body>
+</html>

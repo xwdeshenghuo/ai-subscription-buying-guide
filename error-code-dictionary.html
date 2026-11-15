@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 订阅支付报错代码字典：card_declined、risk_check_failed 怎么办</title>
+<meta name="description" content="AI 订阅支付常见报错代码的成因与自救步骤：card_declined、your credit card was declined、risk_check_failed。报错原因因银行与账号状态而异，无法只看代码断定。">
+<style>
+body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;max-width:720px;margin:0 auto;padding:24px 16px;line-height:1.8;color:#222}
+h1{font-size:22px}h2{font-size:18px;margin-top:28px}
+a{color:#1657c9}.note{color:#666;font-size:14px}
+ol,ul{padding-left:20px}
+</style>
+</head>
+<body>
+<p><a href="index.html">← 返回首页</a></p>
+<h1>AI 订阅支付报错代码字典</h1>
+<p>先说结论：报错代码只告诉你“哪一步被拒”，不告诉你“为什么被拒”。同一串代码，银行风控、卡片地区、账号状态都可能是原因，<strong>只看代码无法断定</strong>。下面按常见情况列成因与自救步骤，不确定处会直接标明。</p>
+
+<h2>1. card_declined（卡被拒绝）</h2>
+<p><strong>可能成因：</strong>发卡行拒绝了这笔扣款。常见于卡片地区与账号地区不一致、卡片未开通境外支付、卡片额度或状态异常。报错本身不说明是哪一种，须逐项排除（不确定：具体拒付原因只有发卡行能查到，页面与报错代码看不出来）。</p>
+<p><strong>自救步骤：</strong></p>
+<ol>
+<li>核对卡片地区与账号地区是否一致，卡片是否开通了境外支付。</li>
+<li>换一张卡，或换一种官方支持的支付方式再试一次。</li>
+<li>保留报错截图，联系发卡行确认拒付原因；不要连续反复刷卡，反复失败可能触发风控。</li>
+</ol>
+
+<h2>2. your credit card was declined（你的信用卡被拒绝）</h2>
+<p><strong>可能成因：</strong>与 card_declined 同类，是同一拒付的不同文案。常见于卡片信息有误（有效期、账单地址）、卡片被银行临时风控、或账号近期换过卡、换过支付方式。同样无法只看文案断定是哪一种（不确定：具体原因须问发卡行）。</p>
+<p><strong>自救步骤：</strong></p>
+<ol>
+<li>先核对卡号、有效期、账单地址是否填对。</li>
+<li>确认卡片未过期、额度足够、境外支付已开通。</li>
+<li>如果换卡后仍失败，保留截图找发卡行核对，不要把卡号、验证码发给任何人。</li>
+</ol>
+
+<h2>3. risk_check_failed（风控检查未通过）</h2>
+<p><strong>可能成因：</strong>支付方或平台的风控拦截。常见于短时间内多次支付失败、网络环境频繁切换、账号地区与支付地区不一致。触发规则不公开，无法从报错本身反推具体是哪一条（不确定：各平台风控规则未公开，以下只是常见可能）。</p>
+<p><strong>自救步骤：</strong></p>
+<ol>
+<li>停下来，不要立即连续重试；隔一段时间、用稳定的网络环境再试。</li>
+<li>检查账号地区、卡片地区、当前网络所在地是否一致。</li>
+<li>多次失败后仍被拦截，保留截图，通过官方客服渠道申诉核对，不要找非官方渠道“绕过风控”。</li>
+</ol>
+
+<h2>4. 不是报错代码，但最常被当成报错：已有订阅无法覆盖</h2>
+<p>账号已有有效订阅（含试用）时，充值会被拒绝，且多家渠道一致写明：<strong>这种充不上一般不予退款</strong>。这不是卡的问题，换卡也解决不了。下单前先确认自己的账号当前是 Free 状态，没有在期订阅或试用。</p>
+
+<h2>自救失败怎么办</h2>
+<p>按上面步骤自查后仍充不上，可以考虑找代充渠道，但要先说清楚两点：第一，代充解决的是“替你完成一次合规的官方渠道充值”，不是“绕过风控”；风控、资格、账号状态问题代充也解决不了。第二，下单前必须问清：你的账号能不能充、失败是否全额退、质保写的是补整月还是按剩余天数退。<strong>没有哪家能承诺“一定成功”“永不掉订阅”</strong>，写这种话的不要买。</p>
+<p class="note">不要把报错截图里的卡号、验证码发给任何人，也不要把账号密码交给代充方。正规直充是充到你自己的号上，不需要交密码。</p>
+
+<section>
+<h2>购买入口</h2>
+<ul>
+<li><a href="https://www.16688.com.cn/shop/S833876">数卡星球（16688 店）</a></li>
+<li><a href="https://wzyp.cn/shop/VJX8A2B1">数卡星球（链动小铺店）</a></li>
+</ul>
+</section>
+<p class="note">本站为价格与选购指南，不声称官方授权。价格与库存以店铺详情页为准。</p>
+</body>
+</html>
